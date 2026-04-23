@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 
-projects="$HOME/Coding"
+BASE_DIR="$HOME/Coding"
 
-selected=$(find "$projects" -maxdepth 2 -type d | fzf)
+[ ! -d "$BASE_DIR" ] && exit 1
 
-[ -z "$selected" ] && exit
+SELECTED=$(find "$BASE_DIR" -mindepth 1 -maxdepth 1 -type d | fzf)
 
-session=$(basename "$selected")
+[ -z "$SELECTED" ] && exit 0
 
-tmux new-session -d -s "$session" -c "$selected"
-
-tmux send-keys -t "$session" "nvim ." C-m
-
-tmux attach -t "$session"
+tmux new-session -c "$SELECTED"
