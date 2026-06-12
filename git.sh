@@ -13,7 +13,7 @@ case "$choice" in
     1)
         git add .
         git commit -m "changes"
-        git remote add origin https://github.com/EbraamSobhy/vue-login-page.git
+        git remote add origin <Link of repository>
         git push -u origin master
         ;;
     2)
