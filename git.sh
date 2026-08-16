@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# nvim git.sh
 # chmod +x git.sh
 # ./git.sh
 
